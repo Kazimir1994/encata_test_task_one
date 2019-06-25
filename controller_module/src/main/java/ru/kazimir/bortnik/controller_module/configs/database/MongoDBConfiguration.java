@@ -41,7 +41,6 @@ public class MongoDBConfiguration implements CommandLineRunner {
         roleInitialization();
         userInitialization();
         HotelInitialization();
-
     }
 
     private void roleInitialization() {
@@ -78,23 +77,6 @@ public class MongoDBConfiguration implements CommandLineRunner {
         Arrays.stream(DayOfWeek.values()).forEach(dayOfWeek -> scheduleWorking.put(dayOfWeek,
                 new WorkingHours(LocalTime.parse(DEFAULT_OPENING_TIME), LocalTime.parse(DEFAULT_CLOSING_TIME))));
         hotel.setScheduleWorking(scheduleWorking);
-//
-//        List<Room> roomList = Arrays.asList(
-//                new Room("nomer1", 5, BigDecimal.valueOf(34.5)),
-//                new Room("nomer2", 6, BigDecimal.valueOf(3.5)));
-//        Room room = roomList.get(0);
-//        User user =userRepositoryImpl.findByEmail("user@mail.ru");
-//        Booking booking = new Booking(LocalDateTime.of(2019, 3, 5, 12, 12, 12), LocalDateTime.of(2019, 3, 10, 12, 12, 12),user);
-//        Booking booking2 = new Booking(LocalDateTime.of(2019, 3, 15, 12, 12, 12), LocalDateTime.of(2019, 3, 20, 12, 12, 12),user);
-//        Booking booking3 = new Booking(LocalDateTime.of(2019, 4, 15, 12, 12, 12), LocalDateTime.of(2019, 5, 20, 12, 12, 12),user);
-//        room.getBookingList().add(booking);
-//        room.getBookingList().add(booking2);
-//        room.getBookingList().add(booking2);
-//        room.getBookingList().add(booking3);
-//        roomRepository.deleteAll();
-//        roomRepository.insert(roomList);
-//        List<Room> roomList1 = roomRepository.findAll();
-//        hotel.setRooms(roomList1);
         hotelRepository.deleteAll();
         hotelRepository.insert(hotel);
     }
